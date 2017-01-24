@@ -1,32 +1,34 @@
 import random, turtle
 
-class Sierpinski(object):
-	"""A chaos game. A point is randomly chosen inside an equilateral 
-	   triangle. A vertex is randomly chosen. The midpoint of the line 
-	   between the point and vertex is marked. This is repeated to produce a 
-	   triangle fractal.
+class SierpinskiTriangle(object):
+	"""A chaos game: An initial point is randomly chosen inside an equilateral 
+	   triangle. One of the vertices is then randomly chosen. The midpoint of 
+	   the line between the point and vertex is drawn. This is repeated to 
+	   produce a triangle fractal.
 	"""
 	def __init__(self):
 		self.wn = turtle.Screen()
 		self.wn.bgcolor("black") 
 		self.wn.title("Sierpinski Fractal Generator")
+		self.wn.tracer(0)
 
 		self.t = turtle.Turtle()
-		self.t.speed("fastest")
+		self.t.speed(0)
 		self.t.hideturtle()
 		self.t.penup()
 
-		self.w = self.wn.window_width()
-		self.h = self.wn.window_height()
+		self.w = self.wn.window_width() / 1.4
+		self.h = self.wn.window_height() / 1.4
 		self.midX = self.w / 2
 		self.midY = self.h / 2
+		self.vertices = [self._getCoord(x, self._getY(x, True)) for x in [10, self.midX, self.w - 10]]
 
-	def getPoint(self):
+	def getInitialPoint(self):
 		x = round(random.uniform(10, self.w - 10))
-		y = self.getY(x)
-		return self.getCoord(x,y)
+		y = self._getY(x)
+		return self._getCoord(x,y)
 
-	def getY(self, x, rand=False):
+	def _getY(self, x, rand=False):
 		upperYbound = 0
 		if x < self.midX:
 			upperYbound = 2 * x
@@ -37,11 +39,10 @@ class Sierpinski(object):
 			return upperYbound
 		return y
 
-	def getVertex(self):
-		vertices = [self.getCoord(x, self.getY(x, True)) for x in [10, self.midX, self.w - 10]]
-		return random.choice(vertices)
+	def getRandomVertex(self, lastVertex):
+		return random.choice(self.vertices)
 
-	def getCoord(self, x, y):
+	def _getCoord(self, x, y):
 		return x - self.midX, y - self.midY - 10
 
 	def getMidpoint(self, p1, p2):
@@ -50,24 +51,53 @@ class Sierpinski(object):
 		return ((x1 + x2) / 2), ((y1 + y2) / 2)
 
 	def getColor(self):
-		colors = ["blue", "red", "white", "yellow"]
+		colors = ["blue", "white"]
 		return random.choice(colors)
 		
-	def draw(self):
-		prevPoint = self.getPoint()
-		for i in range(100000):
-			v = self.getVertex()
+	def draw(self, iterations):
+		prevPoint = self.getInitialPoint()
+		count = 0
+		updateCount = 0
+		lastVertex = None
+		while count < iterations:
+			v = self.getRandomVertex(lastVertex)
+			lastVertex = v
 			mp = self.getMidpoint(prevPoint, v)
 			x, y = mp
 			prevPoint = mp
 			self.t.setpos(x, y)
-			self.t.dot(2, "white")
+			self.t.dot(1, self.getColor())
+			count += 1
+			updateCount += 1
+			if updateCount == 200:
+				self.wn.update()
+				updateCount = 0
 
 		
-	def main(self):
-		self.draw()
+	def main(self, iterations):
+		self.draw(iterations)
 		self.wn.exitonclick()
 
+class SierpinskiSquare(SierpinskiTriangle):
+	"""A point inside a square repeatedly jumps half of the distance towards 
+	   a randomly chosen vertex, but the currently chosen vertex cannot be the 
+	   same as the previously chosen vertex.
+	"""
+	def __init__(self):
+		super(SierpinskiSquare, self).__init__()
+		ll = (10, self._getY(10, True))
+		ul = (10, self._getY(self.midX, True))
+		lr = (self.w - 10, self._getY(10, True))
+		ur = (self.w - 10, self._getY(self.midX, True))
+		self.vertices = [self._getCoord(p[0], p[1]) for p in [ll, ul, lr, ur]]
 
-s = Sierpinski()
-s.main()
+	def getRandomVertex(self, lastVertex):
+		v = random.choice(self.vertices)
+		while v == lastVertex:
+			v = random.choice(self.vertices)
+		return v
+
+
+s = SierpinskiTriangle()
+# s = SierpinskiSquare()
+s.main(100000)
