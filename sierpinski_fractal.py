@@ -1,6 +1,6 @@
 import random, turtle
 
-class Sierpinski(object):
+class SierpinskiTriangle(object):
 	"""A chaos game: An initial point is randomly chosen inside an equilateral 
 	   triangle. One of the vertices is then randomly chosen. The midpoint of 
 	   the line between the point and vertex is drawn. This is repeated to 
@@ -21,6 +21,7 @@ class Sierpinski(object):
 		self.h = self.wn.window_height() / 1.4
 		self.midX = self.w / 2
 		self.midY = self.h / 2
+		self.vertices = [self._getCoord(x, self._getY(x, True)) for x in [10, self.midX, self.w - 10]]
 
 	def getInitialPoint(self):
 		x = round(random.uniform(10, self.w - 10))
@@ -38,9 +39,8 @@ class Sierpinski(object):
 			return upperYbound
 		return y
 
-	def getRandomVertex(self):
-		vertices = [self._getCoord(x, self._getY(x, True)) for x in [10, self.midX, self.w - 10]]
-		return random.choice(vertices)
+	def getRandomVertex(self, lastVertex):
+		return random.choice(self.vertices)
 
 	def _getCoord(self, x, y):
 		return x - self.midX, y - self.midY - 10
@@ -58,8 +58,10 @@ class Sierpinski(object):
 		prevPoint = self.getInitialPoint()
 		count = 0
 		updateCount = 0
+		lastVertex = None
 		while count < iterations:
-			v = self.getRandomVertex()
+			v = self.getRandomVertex(lastVertex)
+			lastVertex = v
 			mp = self.getMidpoint(prevPoint, v)
 			x, y = mp
 			prevPoint = mp
@@ -76,6 +78,23 @@ class Sierpinski(object):
 		self.draw(iterations)
 		self.wn.exitonclick()
 
+class SierpinskiSquare(SierpinskiTriangle):
+	"""docstring for SierpinskiSquare"""
+	def __init__(self):
+		super(SierpinskiSquare, self).__init__()
+		ll = (10, self._getY(10, True))
+		ul = (10, self._getY(self.midX, True))
+		lr = (self.w - 10, self._getY(10, True))
+		ur = (self.w - 10, self._getY(self.midX, True))
+		self.vertices = [self._getCoord(p[0], p[1]) for p in [ll, ul, lr, ur]]
 
-s = Sierpinski()
+	def getRandomVertex(self, lastVertex):
+		v = random.choice(self.vertices)
+		while v == lastVertex:
+			v = random.choice(self.vertices)
+		return v
+
+
+# s = SierpinskiTriangle()
+s = SierpinskiSquare()
 s.main(1000000)
