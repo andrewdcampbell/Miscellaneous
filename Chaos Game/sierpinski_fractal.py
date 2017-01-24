@@ -43,7 +43,7 @@ class SierpinskiTriangle(object):
 		return random.choice(self.vertices)
 
 	def _getCoord(self, x, y):
-		return x - self.midX, y - self.midY - 10
+		return x - self.midX, y - self.midY - 50
 
 	def getMidpoint(self, p1, p2):
 		x1, y1 = p1
@@ -51,7 +51,7 @@ class SierpinskiTriangle(object):
 		return ((x1 + x2) / 2), ((y1 + y2) / 2)
 
 	def getColor(self):
-		colors = ["blue", "white"]
+		colors = ["white", "green"]
 		return random.choice(colors)
 		
 	def draw(self, iterations):
@@ -89,15 +89,51 @@ class SierpinskiSquare(SierpinskiTriangle):
 		ul = (10, self._getY(self.midX, True))
 		lr = (self.w - 10, self._getY(10, True))
 		ur = (self.w - 10, self._getY(self.midX, True))
-		self.vertices = [self._getCoord(p[0], p[1]) for p in [ll, ul, lr, ur]]
+		self.vertices = [self._getCoord(p[0], p[1]) for p in [ll, ul, ur, lr]]
 
 	def getRandomVertex(self, lastVertex):
-		v = random.choice(self.vertices)
-		while v == lastVertex:
-			v = random.choice(self.vertices)
-		return v
+		index = random.randrange(0,len(self.vertices))
+		lastIndex = -1
+		if lastVertex:
+			lastIndex = self.vertices.index(lastVertex)
+		while index == lastIndex:
+			index = random.randrange(0,len(self.vertices))
+		return self.vertices[index]
+
+class SierpinskiSquare2(SierpinskiSquare):
+	"""A point inside a square repeatedly jumps half of the distance towards 
+	   a randomly chosen vertex, but the currently chosen vertex cannot be the 
+	   same as the previously chosen vertex.
+	"""
+
+	def getRandomVertex(self, lastVertex):
+		index = random.randrange(0,len(self.vertices))
+		lastIndex = -1
+		if lastVertex:
+			lastIndex = self.vertices.index(lastVertex)
+		while (index + 1) % 4 == lastIndex:
+			index = random.randrange(0,len(self.vertices))
+		return self.vertices[index]
+
+class SierpinskiSquare3(SierpinskiSquare):
+	"""A point inside a square repeatedly jumps half of the distance towards 
+	   a randomly chosen vertex, but the currently chosen vertex cannot be the 
+	   same as the previously chosen vertex.
+	"""
+
+	def getRandomVertex(self, lastVertex):
+		index = random.randrange(0,len(self.vertices))
+		lastIndex = -1
+		if lastVertex:
+			lastIndex = self.vertices.index(lastVertex)
+		while (index + 2) % 4 == lastIndex:
+			index = random.randrange(0,len(self.vertices))
+		return self.vertices[index]
 
 
+# Uncomment one of the following instantiations! Also try changing the color list!
 s = SierpinskiTriangle()
 # s = SierpinskiSquare()
-s.main(100000)
+# s = SierpinskiSquare2()
+# s = SierpinskiSquare3()
+s.main(20000)
