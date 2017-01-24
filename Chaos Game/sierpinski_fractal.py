@@ -54,11 +54,12 @@ class Sierpinski(object):
 		return random.choice(colors)
 		
 	def draw(self):
+		prevPoint = self.getPoint()
 		for i in range(100000):
-			p = self.getPoint()
 			v = self.getVertex()
-			mp = self.getMidpoint(p, v)
+			mp = self.getMidpoint(prevPoint, v)
 			x, y = mp
+			prevPoint = mp
 			self.t.setpos(x, y)
 			self.t.dot(2, "white")
 
