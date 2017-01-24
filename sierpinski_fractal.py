@@ -51,7 +51,7 @@ class Sierpinski(object):
 		return ((x1 + x2) / 2), ((y1 + y2) / 2)
 
 	def getColor(self):
-		colors = ["blue", "red"]
+		colors = ["blue", "orange"]
 		return random.choice(colors)
 		
 	def draw(self, iterations):
