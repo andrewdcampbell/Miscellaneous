@@ -7,17 +7,13 @@ class Tree(object):
 		self.wn.bgcolor("black") 
 		self.wn.title("Tree Fractal")
 		self.wn.tracer(0)
-
 		self.t = turtle.Turtle()
 		self.t.speed(0)
 		self.t.hideturtle()
 		self.t.penup()
 
-		self.w = self.wn.window_width() / 1.4
-		self.h = self.wn.window_height() / 1.4
-		self.midX = self.w / 2
-		self.midY = self.h / 2
-
+		self.midX = self.wn.window_width() / 2.8
+		self.midY = self.wn.window_height() / 2.8
 		self.colors = ["white", "red", "blue", "green", "yellow"]
 		random.shuffle(self.colors)
 		self.colors = self.colors[0:3]
