@@ -51,7 +51,7 @@ class SierpinskiTriangle(object):
 		return ((x1 + x2) / 2), ((y1 + y2) / 2)
 
 	def getColor(self):
-		colors = ["white", "green"]
+		colors = ["orange", "blue"]
 		return random.choice(colors)
 		
 	def draw(self, iterations):
@@ -132,8 +132,8 @@ class SierpinskiSquare3(SierpinskiSquare):
 
 
 # Uncomment one of the following instantiations! Also try changing the color list!
-s = SierpinskiTriangle()
-# s = SierpinskiSquare()
+# s = SierpinskiTriangle()
+s = SierpinskiSquare()
 # s = SierpinskiSquare2()
 # s = SierpinskiSquare3()
 s.main(20000)
