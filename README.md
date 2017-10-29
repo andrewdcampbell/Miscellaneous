@@ -4,6 +4,12 @@
 ### Tree Fractal Gallery:
 <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.07.38%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.11.33%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.22.48%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.24.24%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.27.15%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.28.22%20PM.png" height="360">
 
+### Mandelbrot Set Gallery:
+<img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/mandelbrot/images/gnuplot2_0.png" height="360"> 
+<img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/mandelbrot/images/cubehelix_2.png" height="360"> 
+<img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/mandelbrot/images/gnuplot_3.png" height="360"> 
+<img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/mandelbrot/images/hot_1.png" height="360"> 
+
 ### Chaos Game Art Gallery:
 <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Chaos%20Game/Screen%20Shot%202017-01-24%20at%202.31.26%20PM.png" height="400"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Chaos%20Game/Screen%20Shot%202017-01-24%20at%202.31.46%20PM.png" height="400"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Chaos%20Game/Screen%20Shot%202017-01-24%20at%202.32.00%20PM.png" height="400"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Chaos%20Game/Screen%20Shot%202017-01-24%20at%202.32.13%20PM.png" height="400">
 
