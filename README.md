@@ -1,6 +1,9 @@
 # Miscellaneous code
 > Random small programs for fun, mostly art
 
+### Mandelbrot Set Gallery:
+<img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/mandelbrot/images/gnuplot2_0.png" height="400"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/mandelbrot/images/cubehelix_2.png" height="400"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/mandelbrot/images/gnuplot_3.png" height="400"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/mandelbrot/images/hot_1.png" height="400"> 
+
 ### Tree Fractal Gallery:
 <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.07.38%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.11.33%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.22.48%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.24.24%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.27.15%20PM.png" height="360"> <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Tree%20Art/Screen%20Shot%202017-05-20%20at%2011.28.22%20PM.png" height="360">
 
