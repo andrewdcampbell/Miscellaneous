@@ -13,6 +13,3 @@
 ### Scheme Art Gallery:
 <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Scheme%20Art/galaxies.png" height="500">
 <img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/Recursive%20Scheme%20Art/color_stars.png" height="500">
-
-### Wordcloud generated from commit messages:
-<img src="https://github.com/andrewdcampbell/Miscellaneous/blob/master/wordclouds/cap_logo_wordcloud.png" height="600">
